@@ -1,0 +1,49 @@
+# Environment & Secrets
+.env
+*.env
+backend/.env
+frontend/.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+
+# AI Weights & Heavy Files
+ai_engine/weights/*.pt
+ai_engine/weights/*.onnx
+!ai_engine/weights/.gitkeep
+
+# Data & Evidence
+backend/storage/evidence/*.jpg
+backend/storage/evidence/*.png
+backend/storage/uploads/*
+!backend/storage/evidence/.gitkeep
+!backend/storage/uploads/.gitkeep
+backend/storage/database.sqlite
+backend/storage/*.sqlite
+*.log
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Docker & Temp
+.coverage
+htmlcov/
+.pytest_cache/

@@ -1,0 +1,1610 @@
+/* ==========================================================================
+   ASTRO TRAFFIC - PREMIUM LANDING PAGE & CINEMATIC INTRO STYLES
+   Inspired by Dribbble: Astro Traffic Website by Ihor
+   ========================================================================== */
+
+:root {
+  --astro-bg: transparent;
+  --astro-card-bg: rgba(255, 255, 255, 0.15);
+  --astro-dark: #FFFFFF;
+  --astro-dark-muted: #E2E8F0;
+  --astro-red: #e11d48;
+  --astro-red-dark: #be123c;
+  --astro-red-light: rgba(225, 29, 72, 0.2);
+  --astro-gray-light: rgba(255, 255, 255, 0.22);
+  --astro-gray-muted: #CBD5E1;
+  --astro-gray-dark: #F1F5F9;
+  --astro-font-display: 'Syne', 'Outfit', sans-serif;
+  --astro-font-body: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --astro-font-mono: 'JetBrains Mono', monospace;
+}
+
+.astro-root {
+  background-color: #05070D;
+  color: #FFFFFF;
+  font-family: var(--astro-font-body);
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.astro-root::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ==========================================================================
+   CINEMATIC INTRO (50% CENTER DISPLAY WITH BLURRED SCREEN BACKDROP)
+   ========================================================================== */
+.astro-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 11, 20, 0.62);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.astro-intro-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.97);
+}
+
+/* 50% Display Centered Content (No Card Format) */
+.astro-intro-content {
+  position: relative;
+  z-index: 10;
+  width: 50vw;
+  min-width: 480px;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #FFFFFF;
+  animation: introFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes introFadeIn {
+  0% { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.astro-intro-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(225, 29, 72, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  pointer-events: none;
+}
+
+.astro-intro-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.astro-intro-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.astro-intro-logo-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.astro-intro-logo-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.astro-intro-center {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.astro-intro-status {
+  font-family: var(--astro-font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ff4d6d;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-shadow: 0 0 12px rgba(255, 77, 109, 0.4);
+}
+
+.astro-intro-title {
+  font-family: var(--astro-font-display);
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+  min-height: 2.1em;
+}
+
+.astro-intro-title span.highlight {
+  color: #e11d48;
+  text-shadow: 0 0 24px rgba(225, 29, 72, 0.6);
+}
+
+.astro-intro-caret {
+  display: inline-block;
+  width: 4px;
+  height: 0.8em;
+  background-color: #FFFFFF;
+  margin-left: 6px;
+  vertical-align: baseline;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  animation: introCaretBlink 0.8s infinite;
+}
+
+@keyframes introCaretBlink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.astro-intro-bar-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.astro-intro-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #e11d48, #ff4d6d, #ffffff);
+  box-shadow: 0 0 14px rgba(225, 29, 72, 0.6);
+  transition: width 0.08s linear;
+}
+
+.astro-intro-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.astro-intro-loading-tag {
+  font-family: var(--astro-font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--astro-gray-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-transform: uppercase;
+}
+
+.astro-intro-loading-spinner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #e11d48;
+  animation: introSpinner 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes introSpinner {
+  to { transform: rotate(360deg); }
+}
+
+.astro-intro-digits {
+  font-family: var(--astro-font-mono);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 900;
+  line-height: 0.85;
+  color: #FFFFFF;
+  letter-spacing: -0.05em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
+}
+
+.astro-intro-digits span.pct {
+  font-size: 0.42em;
+  color: #ff4d6d;
+  margin-left: 0.25rem;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR
+   ========================================================================== */
+.astro-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 3.5rem;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.astro-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+.astro-brand-title {
+  font-family: var(--astro-font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #FFFFFF;
+}
+
+.astro-brand-title span.dot {
+  color: var(--astro-red);
+}
+
+.astro-brand-sub {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+.astro-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.astro-nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.astro-nav-link:hover,
+.astro-nav-link.active {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.astro-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--astro-red);
+  transition: width 0.25s ease;
+}
+
+.astro-nav-link:hover::after {
+  width: 100%;
+}
+
+.astro-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.astro-btn-outline {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  color: var(--astro-dark);
+  padding: 0.6rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.astro-btn-outline:hover {
+  border-color: var(--astro-dark);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.astro-btn-primary {
+  background: var(--astro-dark);
+  color: #ffffff;
+  border: 1px solid var(--astro-dark);
+  padding: 0.6rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.astro-btn-primary:hover {
+  background: var(--astro-red);
+  border-color: var(--astro-red);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.25);
+}
+
+/* ==========================================================================
+   HERO SECTION (EXACT DRIBBLE RECREATION)
+   ========================================================================== */
+.astro-hero {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem 3.5rem 4rem 3.5rem;
+  min-height: calc(100vh - 100px);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.astro-hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  z-index: 10;
+}
+
+.astro-hero-top-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.astro-mini-badge-container {
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.astro-mini-badge-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  filter: drop-shadow(0 4px 12px rgba(225, 29, 72, 0.45));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.astro-mini-badge-container:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 16px rgba(225, 29, 72, 0.7));
+}
+
+.astro-tagline-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.astro-tagline-icon {
+  width: 10px;
+  height: 10px;
+  background-color: var(--astro-red);
+  margin-bottom: 0.25rem;
+}
+
+.astro-tagline-text {
+  font-family: var(--astro-font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+}
+
+.astro-tagline-text span.red {
+  color: var(--astro-red);
+}
+
+.astro-tagline-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--astro-gray-muted);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin-top: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.astro-tagline-link:hover {
+  color: var(--astro-red);
+}
+
+.astro-hero-headline-block {
+  margin-top: auto;
+}
+
+.astro-massive-title {
+  font-family: var(--astro-font-display);
+  font-size: clamp(3.5rem, 6.8vw, 6.2rem);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  position: relative;
+  min-height: 1.8em;
+}
+
+/* Typewriter Headline Format */
+.astro-typewriter-title {
+  color: #FFFFFF;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+  user-select: none;
+}
+
+.astro-typewriter-title .astro-type-word {
+  display: inline-block;
+  min-height: 0.9em;
+  color: #FFFFFF;
+  letter-spacing: -0.045em;
+  vertical-align: top;
+}
+
+.astro-typewriter-caret {
+  display: inline-block;
+  width: 5px;
+  height: 0.78em;
+  background-color: #FFFFFF;
+  margin-left: 8px;
+  vertical-align: baseline;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.95);
+  animation: astroTypeCaretBlink 0.85s infinite;
+}
+
+@keyframes astroTypeCaretBlink {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.astro-hero-bottom-desc {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  align-items: flex-end;
+}
+
+.astro-hero-paragraph {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  max-width: 340px;
+}
+
+.astro-hero-cta-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.astro-hero-cta-link:hover {
+  color: var(--astro-red);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   HERO RIGHT: ASTRONAUT & RED BANNER COMPOSITION
+   ========================================================================== */
+.astro-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  min-height: 560px;
+}
+
+.astro-visual-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Red Banner slicing horizontally across lower astronaut */
+.astro-red-slice-banner {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 18%;
+  height: 160px;
+  background-color: var(--astro-red);
+  z-index: 1;
+  box-shadow: 0 15px 35px rgba(225, 29, 72, 0.25);
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Interactive Action Button anchored at bottom left of the red banner */
+.astro-red-banner-action-btn {
+  width: 56px;
+  height: 56px;
+  background-color: var(--astro-dark);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 15;
+}
+
+.astro-red-banner-action-btn:hover {
+  background-color: #ffffff;
+  color: var(--astro-red);
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated Robot Parallax Layer */
+.astro-robot-parallax-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  transition: transform 0.2s ease-out;
+}
+
+/* Stationary Standing Robot Container (Scanning while standing) */
+.astro-robot-movement-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: none;
+}
+
+.astro-robot-movement-box:hover {
+  filter: drop-shadow(0 25px 50px rgba(225, 29, 72, 0.35));
+}
+
+/* Luminous Cyber Backlight Halo Behind Robot Head for Maximum Contrast */
+.astro-robot-head-backlight {
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-48%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(225, 29, 72, 0.45) 45%, rgba(59, 130, 246, 0.25) 70%, transparent 85%);
+  filter: blur(24px);
+  z-index: 3;
+  pointer-events: none;
+  animation: headBacklightPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes headBacklightPulse {
+  0% { opacity: 0.8; transform: translateX(-48%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(-48%) scale(1.1); filter: blur(28px); }
+}
+
+/* Cyber Target Ring Encircling the Robot Helmet */
+.astro-robot-helmet-target {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-48%);
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.45), inset 0 0 15px rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  z-index: 4;
+  animation: rotateHUD 24s linear infinite;
+}
+
+/* Visor Specular Glass Reflection */
+.astro-robot-visor-reflection {
+  position: absolute;
+  top: 7.2%;
+  left: 45%;
+  width: 65px;
+  height: 34px;
+  border-radius: 50% 50% 40% 40%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(56, 189, 248, 0.3) 50%, transparent 100%);
+  filter: blur(3px);
+  z-index: 10;
+  pointer-events: none;
+  transform: rotate(-6deg);
+}
+
+/* 3D Astronaut Hero Image Layer with Luminous Edge Rim Lighting & Enhanced Clarity */
+.astro-astronaut-image {
+  position: relative;
+  width: 100%;
+  max-height: 640px;
+  object-fit: contain;
+  z-index: 5;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.6)) drop-shadow(0 15px 35px rgba(225, 29, 72, 0.45)) brightness(1.1) contrast(1.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  pointer-events: auto;
+}
+
+/* Robot Eye Origin & Laser Scanning Core (Directly on Helmet Visor/Eyes) */
+.astro-robot-eye-origin {
+  position: absolute;
+  top: 11.2%;
+  left: 48.4%;
+  width: 0;
+  height: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Optical Eye Visor Flare */
+.astro-robot-visor-flare {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle, #ffffff 30%, #e11d48 70%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 28px 10px rgba(225, 29, 72, 0.95), 0 0 10px #ffffff;
+  z-index: 12;
+  pointer-events: none;
+  animation: visorPulse 2s ease-in-out infinite;
+}
+
+@keyframes visorPulse {
+  0%, 100% { opacity: 0.75; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.4); box-shadow: 0 0 40px 14px rgba(225, 29, 72, 1), 0 0 16px #ffffff; }
+}
+
+/* Cyber Thruster / Levitation Energy Ring Beneath Robot Boots */
+.astro-robot-thruster-ring {
+  position: absolute;
+  bottom: 2%;
+  left: 28%;
+  right: 28%;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(225, 29, 72, 0.8) 0%, rgba(225, 29, 72, 0.2) 60%, transparent 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(225, 29, 72, 0.75);
+  z-index: 4;
+  animation: thrusterPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes thrusterPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.15); box-shadow: 0 0 35px rgba(225, 29, 72, 0.95); }
+}
+
+/* Focused Laser Beam Radiating Directly from Robot Eyes Across Landing Page */
+.astro-robot-laser-beam {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  width: 820px;
+  height: 4px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(225, 29, 72, 0.95) 20%, rgba(225, 29, 72, 0.3) 75%, transparent 100%);
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.95), 0 0 8px #ffffff;
+  transform-origin: 100% 50%;
+  z-index: 11;
+  pointer-events: none;
+  animation: laserBeamSweep 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes laserBeamSweep {
+  0% {
+    opacity: 0.45;
+    transform: rotate(-18deg) scaleX(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(6deg) scaleX(1.12);
+  }
+  100% {
+    opacity: 0.45;
+    transform: rotate(26deg) scaleX(0.92);
+  }
+}
+
+/* Wide Holographic Laser Radar Cone Radiating Directly from Eyes */
+.astro-robot-radar-cone {
+  position: absolute;
+  top: -160px;
+  right: 0;
+  width: 880px;
+  height: 320px;
+  background: radial-gradient(ellipse at 100% 50%, rgba(225, 29, 72, 0.22) 0%, rgba(225, 29, 72, 0.05) 60%, transparent 85%);
+  clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
+  pointer-events: none;
+  z-index: 9;
+  transform-origin: 100% 50%;
+  animation: radarSweepCone 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes radarSweepCone {
+  0% {
+    opacity: 0.35;
+    transform: rotate(-18deg) scale(0.92);
+  }
+  50% {
+    opacity: 0.85;
+    transform: rotate(6deg) scale(1.14);
+  }
+  100% {
+    opacity: 0.35;
+    transform: rotate(26deg) scale(0.92);
+  }
+}
+
+/* Cyber Floating Ground Shadow */
+.astro-robot-shadow {
+  position: absolute;
+  bottom: 4%;
+  left: 20%;
+  right: 20%;
+  height: 22px;
+  background: radial-gradient(ellipse at center, rgba(10, 14, 26, 0.45) 0%, rgba(225, 29, 72, 0.25) 45%, transparent 75%);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  animation: robotShadowPulse 6s ease-in-out infinite;
+}
+
+@keyframes robotShadowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(0.65);
+    opacity: 0.35;
+  }
+}
+
+/* Cyber HUD Target Rings Behind Robot */
+.astro-robot-hud-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(225, 29, 72, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.astro-robot-hud-ring.ring-1 {
+  width: 460px;
+  height: 460px;
+  top: 10%;
+  right: 6%;
+  animation: rotateHUD 28s linear infinite;
+}
+
+.astro-robot-hud-ring.ring-2 {
+  width: 320px;
+  height: 320px;
+  top: 22%;
+  right: 18%;
+  border-color: rgba(10, 14, 26, 0.08);
+  border-style: dotted;
+  animation: rotateHUD 18s linear infinite reverse;
+}
+
+@keyframes rotateHUD {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Subtle Floating Halo */
+.astro-hero-halo {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.16) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 8%;
+  right: 8%;
+  z-index: 0;
+  pointer-events: none;
+  animation: haloPulse 6s ease-in-out infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* ==========================================================================
+   PORTAL QUICK LAUNCH SELECTOR BAR
+   ========================================================================== */
+.astro-portal-strip {
+  max-width: 1440px;
+  margin: 0 auto 5rem auto;
+  padding: 0 3.5rem;
+}
+
+.astro-portal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.astro-portal-card {
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 14px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: #FFFFFF;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.astro-portal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0%;
+  background-color: var(--astro-red);
+  transition: height 0.3s ease;
+}
+
+.astro-portal-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.65), 0 0 30px rgba(225, 29, 72, 0.25);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.astro-portal-card:hover::before {
+  height: 100%;
+}
+
+.astro-portal-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.astro-portal-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.astro-portal-card:hover .astro-portal-icon-box {
+  background: var(--astro-red);
+  color: #ffffff;
+}
+
+.astro-portal-badge {
+  font-family: var(--astro-font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.astro-portal-card-title {
+  font-family: var(--astro-font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.astro-portal-card-desc {
+  font-size: 0.88rem;
+  color: #F1F5F9;
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+}
+
+.astro-portal-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.astro-portal-action-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.astro-portal-card:hover .astro-portal-action-text {
+  color: var(--astro-red);
+}
+
+/* ==========================================================================
+   WHO WE ARE & FEATURE SECTIONS
+   ========================================================================== */
+.astro-section {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 5rem 3.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  position: relative;
+  z-index: 10;
+}
+
+.astro-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3.5rem;
+  gap: 2.5rem;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  padding: 2.25rem 2.75rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.20), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 10;
+}
+
+.astro-section-subtitle {
+  font-family: var(--astro-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(225, 29, 72, 0.28);
+  border: 1px solid rgba(255, 77, 109, 0.65);
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  box-shadow: 0 0 16px rgba(225, 29, 72, 0.4);
+}
+
+.astro-section-title {
+  font-family: var(--astro-font-display);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.75), 0 0 2px rgba(0, 0, 0, 0.9);
+  margin: 0;
+}
+
+.astro-section-desc {
+  font-size: 1.02rem;
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  max-width: 480px;
+  line-height: 1.65;
+  font-weight: 500;
+  margin: 0;
+}
+
+.astro-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.astro-stat-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.40);
+}
+
+.astro-stat-box:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.astro-stat-num {
+  font-family: var(--astro-font-mono);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.astro-stat-num span.accent {
+  color: var(--astro-red);
+}
+
+.astro-stat-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.astro-stat-sub {
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   ADVANTAGES MATRIX
+   ========================================================================== */
+.astro-adv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.astro-adv-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  border-radius: 12px;
+  padding: 2.25rem;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.40);
+}
+
+.astro-adv-card:hover {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25);
+}
+
+.astro-adv-index {
+  font-family: var(--astro-font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--astro-red);
+  margin-bottom: 1.25rem;
+}
+
+.astro-adv-card h3 {
+  font-family: var(--astro-font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.astro-adv-card p {
+  font-size: 0.88rem;
+  color: #FFFFFF;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   LIVE RADAR DEMO SECTION
+   ========================================================================== */
+.astro-demo-terminal {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 16px;
+  padding: 2rem;
+  color: #ffffff;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.20), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  position: relative;
+  overflow: hidden;
+}
+
+.astro-demo-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  margin-bottom: 1.5rem;
+}
+
+.astro-terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.astro-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.astro-dot.red { background: #ef4444; }
+.astro-dot.yellow { background: #f59e0b; }
+.astro-dot.green { background: #10b981; }
+
+.astro-terminal-view {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+}
+
+.astro-radar-screen {
+  background: rgba(10, 15, 28, 0.45);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  height: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.astro-radar-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at center, transparent 30%, rgba(225, 29, 72, 0.15) 31%, transparent 32%),
+    radial-gradient(circle at center, transparent 60%, rgba(225, 29, 72, 0.15) 61%, transparent 62%),
+    radial-gradient(circle at center, transparent 90%, rgba(225, 29, 72, 0.15) 91%, transparent 92%);
+}
+
+.astro-radar-crosshair {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.astro-radar-crosshair::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.astro-radar-crosshair::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.astro-target-box {
+  position: absolute;
+  border: 2px solid #e11d48;
+  background: rgba(225, 29, 72, 0.15);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: var(--astro-font-mono);
+  font-size: 0.65rem;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(225, 29, 72, 0.4);
+  animation: targetPulse 2s infinite ease-in-out;
+}
+
+@keyframes targetPulse {
+  0%, 100% { border-color: #e11d48; }
+  50% { border-color: #ffffff; }
+}
+
+.astro-demo-telemetry {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.astro-footer {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  padding: 4rem 3.5rem 2rem 3.5rem;
+}
+
+.astro-footer-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.astro-footer-bottom {
+  max-width: 1440px;
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #FFFFFF;
+  opacity: 0.95;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   ENGINEERED BY - PREMIUM TEAM CARD
+   ========================================================================== */
+.astro-engineered-box {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.20), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 400px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.astro-engineered-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff4d6d, #f59e0b, #10b981, #06b6d4);
+  opacity: 0.9;
+}
+
+.astro-engineered-box:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25), 0 0 20px rgba(244, 63, 94, 0.2);
+  transform: translateY(-2px);
+}
+
+.astro-engineered-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.astro-engineered-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--astro-font-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.astro-engineered-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 10px #10b981;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.astro-engineered-subtag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.astro-engineered-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.astro-team-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  transition: all 0.22s ease-in-out;
+  cursor: default;
+}
+
+.astro-team-chip:hover {
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(2px);
+}
+
+.astro-chip-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--astro-font-mono, monospace);
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(225, 29, 72, 0.45) 0%, rgba(99, 102, 241, 0.45) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.astro-chip-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.astro-chip-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .astro-navbar, .astro-hero, .astro-portal-strip, .astro-section, .astro-footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .astro-hero {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .astro-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .astro-adv-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .astro-terminal-view {
+    grid-template-columns: 1fr;
+  }
+
+  .astro-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .astro-navbar {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .astro-nav-links {
+    display: none;
+  }
+  
+  .astro-portal-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .astro-massive-title {
+    font-size: 3.2rem;
+  }
+  
+  .astro-hero-bottom-desc {
+    grid-template-columns: 1fr;
+  }
+  
+  .astro-intro-overlay {
+    padding: 1.25rem;
+  }
+
+  .astro-intro-content {
+    width: 90vw;
+    min-width: unset;
+    gap: 1.5rem;
+  }
+
+  .astro-footer-content {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .astro-engineered-box {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .astro-engineered-team-grid {
+    grid-template-columns: 1fr;
+  }
+}
